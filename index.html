@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Guard — Wallet Security Scanner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span class="logo-icon">&#x1F6E1;</span>
+      <h1>Cookie Guard</h1>
+    </div>
+    <p class="tagline">Wallet Security Scanner for Cookie Chain</p>
+    <button id="connectBtn" class="btn btn-primary">Connect Wallet</button>
+    <div id="walletInfo" class="wallet-info hidden">
+      <span id="walletAddr"></span>
+      <button id="disconnectBtn" class="btn btn-small">Disconnect</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="landing" class="section">
+      <div class="hero">
+        <h2>Protect your Cookie Chain wallet</h2>
+        <p>Scan your tokens for dust attacks, transfer-fee traps, name spoofing, and airdrop spam. Get a security report — on-chain.</p>
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">&#x1F50D;</div>
+            <h3>Token Analysis</h3>
+            <p>Inspect every token in your wallet for known scam patterns</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">&#x26A0;</div>
+            <h3>Risk Detection</h3>
+            <p>Identify dust, transfer-fee tokens, name spoofing, and suspicious airdrops</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">&#x1F4DD;</div>
+            <h3>On-Chain Report</h3>
+            <p>Record your scan results as a memo transaction on Cookie Chain</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scanner" class="section hidden">
+      <div class="scan-controls">
+        <button id="scanBtn" class="btn btn-primary btn-large">Scan My Wallet</button>
+        <div id="scanStatus" class="scan-status hidden"></div>
+      </div>
+
+      <div id="results" class="results hidden">
+        <div class="summary-cards">
+          <div class="card card-safe">
+            <div class="card-number" id="safeCount">0</div>
+            <div class="card-label">Safe</div>
+          </div>
+          <div class="card card-review">
+            <div class="card-number" id="reviewCount">0</div>
+            <div class="card-label">Review</div>
+          </div>
+          <div class="card card-suspicious">
+            <div class="card-number" id="suspiciousCount">0</div>
+            <div class="card-label">Suspicious</div>
+          </div>
+          <div class="card card-total">
+            <div class="card-number" id="totalCount">0</div>
+            <div class="card-label">Total Tokens</div>
+          </div>
+        </div>
+
+        <div id="nativeBalance" class="native-balance"></div>
+
+        <div class="token-list-header">
+          <h2>Token Analysis</h2>
+          <div class="filter-btns">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="suspicious">Suspicious</button>
+            <button class="filter-btn" data-filter="review">Review</button>
+            <button class="filter-btn" data-filter="safe">Safe</button>
+          </div>
+        </div>
+
+        <div id="tokenList" class="token-list"></div>
+
+        <div class="report-section">
+          <h2>On-Chain Report</h2>
+          <p>Record your scan results as a memo transaction on Cookie Chain. This creates an immutable proof of your wallet audit.</p>
+          <button id="reportBtn" class="btn btn-primary">Save Report On-Chain</button>
+          <div id="reportStatus" class="report-status hidden"></div>
+          <div id="txLink" class="tx-link hidden"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Cookie Guard &mdash; Open source wallet security for Cookie Chain</p>
+    <p><a href="https://github.com/pipapupa123/cookie-guard" target="_blank">GitHub</a> | Built on <a href="https://cookiechain.wtf" target="_blank">Cookie Chain</a></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/buffer/6.0.3/buffer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.95.8/lib/index.iife.min.js"></script>
+  <script>
+    window.solanaWeb3 = window.solanaWeb3 || solanaWeb3;
+  </script>
+  <script src="app.js"></script>
+</body>
+              </html>
